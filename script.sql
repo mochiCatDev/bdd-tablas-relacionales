@@ -89,3 +89,18 @@ select a.nombre as autor, count(la.la_libro_codigo_fk) as total_libros
 from autores a
 left join libro_autor la on a.id = la.la_autor_id_fk
 group by a.id, a.nombre;
+
+-- PARTE 6: modificación de la tabla
+
+-- agregar una nueva columna llamada precio a la tabla libros
+alter table libros add column precio double precision;
+
+-- actualizar mínimo 3 precios de los libros existentes
+update libros set precio = 25.50 where codigo = 'L001';
+update libros set precio = 18.90 where codigo = 'L002';
+update libros set precio = 30.00 where codigo = 'L003';
+
+-- realizar un select mostrando el título y el precio
+select titulo, precio 
+from libros 
+where precio is not null;
