@@ -27,3 +27,29 @@ create table libro_autor (
     foreign key (la_libro_codigo_fk) references libros(codigo),
     foreign key (la_autor_id_fk) references autores(id)
 );
+
+-- PARTE 4: insertar datos iniciales
+
+-- insertar registros en libros (mínimo 4)
+insert into libros (codigo, titulo, pagina)
+values
+('L001', 'Cien años de soledad', 417),
+('L002', 'La casa de los espíritus', 368),
+('L003', 'Ficciones', 215),
+('L004', 'El amor en los tiempos del cólera', 348);
+
+-- insertar registros en autores (mínimo 3)
+insert into autores (id, nombre, pais)
+values
+(1, 'Gabriel García Márquez', 'Colombia'),
+(2, 'Isabel Allende', 'Chile'),
+(3, 'Jorge Luis Borges', 'Argentina');
+
+-- insertar registros en libro_autor (mínimo 5 relaciones)
+insert into libro_autor (la_libro_codigo_fk, la_autor_id_fk, anio_publicacion)
+values 
+('L001', 1, 1967), -- 1
+('L002', 2, 1982), -- 2
+('L003', 3, 1944), -- 3
+('L004', 1, 1985), -- 4
+('L001', 3, 1950); -- 5
